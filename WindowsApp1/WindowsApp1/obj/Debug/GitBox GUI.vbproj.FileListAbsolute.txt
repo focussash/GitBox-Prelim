@@ -1,0 +1,12 @@
+C:\Users\zijie\source\repos\WindowsApp1\WindowsApp1\bin\Debug\WindowsApp1.exe.config
+C:\Users\zijie\source\repos\WindowsApp1\WindowsApp1\bin\Debug\WindowsApp1.exe
+C:\Users\zijie\source\repos\WindowsApp1\WindowsApp1\bin\Debug\WindowsApp1.pdb
+C:\Users\zijie\source\repos\WindowsApp1\WindowsApp1\bin\Debug\WindowsApp1.xml
+C:\Users\zijie\source\repos\WindowsApp1\WindowsApp1\obj\Debug\GitBox GUI.vbprojAssemblyReference.cache
+C:\Users\zijie\source\repos\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.Resources.resources
+C:\Users\zijie\source\repos\WindowsApp1\WindowsApp1\obj\Debug\GitBox GUI.vbproj.GenerateResource.cache
+C:\Users\zijie\source\repos\WindowsApp1\WindowsApp1\obj\Debug\GitBox GUI.vbproj.CoreCompileInputs.cache
+C:\Users\zijie\source\repos\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.exe
+C:\Users\zijie\source\repos\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.xml
+C:\Users\zijie\source\repos\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.pdb
+C:\Users\zijie\source\repos\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.Form.resources
