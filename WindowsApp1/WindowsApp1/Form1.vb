@@ -46,44 +46,89 @@ Public Class Form
     'D refers to the control type (1 for digital and 2 for analog for pump or flash for valve)
 
     'Buttons 1 - 5, 33 - 37 are for pumps, ON/OFF operation'
+
+    'The following 4 ports handle liquid transfer between vessels and are for MEGA
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Call Pump_OnOff(Pump1, Button1, TextBox1, Port1, "101")
+        If SerialCheck = 1 Then
+            SerialCheck = 0
+            Call Pump_OnOff(Pump1, Button1, TextBox1, Port1, "101")
+            SerialCheck = 1
+        End If
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Call Pump_OnOff(Pump2, Button2, TextBox2, Port1, "102")
+        If SerialCheck = 1 Then
+            SerialCheck = 0
+            Call Pump_OnOff(Pump2, Button2, TextBox2, Port1, "102")
+            SerialCheck = 1
+        End If
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Call Pump_OnOff(Pump3, Button3, TextBox3, Port1, "103")
+        If SerialCheck = 1 Then
+            SerialCheck = 0
+            Call Pump_OnOff(Pump3, Button3, TextBox3, Port1, "103")
+            SerialCheck = 1
+        End If
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        Call Pump_OnOff(Pump4, Button4, TextBox4, Port1, "104")
+        If SerialCheck = 1 Then
+            SerialCheck = 0
+            Call Pump_OnOff(Pump4, Button4, TextBox4, Port1, "104")
+            SerialCheck = 1
+        End If
     End Sub
 
+    'The following 6 ports handle pH adjustments and are for UNO
+
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        Call Pump_OnOff(Pump5, Button5, TextBox5, Port1, "105")
+        If SerialCheck = 1 Then
+            SerialCheck = 0
+            Call Pump_OnOff(Pump5, Button5, TextBox5, Port2, "105")
+            SerialCheck = 1
+        End If
     End Sub
 
     Private Sub Button37_Click(sender As Object, e As EventArgs) Handles Button37.Click
-        Call Pump_OnOff(Pump6, Button37, TextBox26, Port1, "106")
+        If SerialCheck = 1 Then
+            SerialCheck = 0
+            Call Pump_OnOff(Pump6, Button37, TextBox26, Port2, "106")
+            SerialCheck = 1
+        End If
     End Sub
 
     Private Sub Button36_Click(sender As Object, e As EventArgs) Handles Button36.Click
-        Call Pump_OnOff(Pump7, Button36, TextBox25, Port1, "107")
+        If SerialCheck = 1 Then
+            SerialCheck = 0
+            Call Pump_OnOff(Pump7, Button36, TextBox25, Port2, "107")
+            SerialCheck = 1
+        End If
     End Sub
 
     Private Sub Button35_Click(sender As Object, e As EventArgs) Handles Button35.Click
-        Call Pump_OnOff(Pump8, Button35, TextBox24, Port1, "108")
+        If SerialCheck = 1 Then
+            SerialCheck = 0
+            Call Pump_OnOff(Pump8, Button35, TextBox24, Port2, "108")
+            SerialCheck = 1
+        End If
     End Sub
 
     Private Sub Button34_Click(sender As Object, e As EventArgs) Handles Button34.Click
-        Call Pump_OnOff(Pump9, Button34, TextBox23, Port1, "109")
+        If SerialCheck = 1 Then
+            SerialCheck = 0
+            Call Pump_OnOff(Pump9, Button34, TextBox23, Port2, "109")
+            SerialCheck = 1
+        End If
     End Sub
 
     Private Sub Button33_Click(sender As Object, e As EventArgs) Handles Button33.Click
-        Call Pump_OnOff(Pump10, Button33, TextBox22, Port1, "110")
+        If SerialCheck = 1 Then
+            SerialCheck = 0
+            Call Pump_OnOff(Pump10, Button33, TextBox22, Port2, "110")
+            SerialCheck = 1
+        End If
     End Sub
 
 
@@ -117,7 +162,7 @@ Public Class Form
         'I only have limited amount of port objects, so lets manually assign them'
         Try
             Port2 = My.Computer.Ports.OpenSerialPort("COM4") 'Port for pH sensors  (UNO/MEGA1)
-            Port1 = My.Computer.Ports.OpenSerialPort("COM6") 'Port for pumps/gas sparger (MEGA2)
+            'Port1 = My.Computer.Ports.OpenSerialPort("COM6") 'Port for pumps/gas sparger (MEGA2)
 
             InitializeStatus += 1 'Check if this is initialization, or update
             'Confirm that the form is initialized'
@@ -155,36 +200,36 @@ Public Class Form
                     SerialCheck = 0 'Occupy the serial
                     Dim reading As String = Port2.ReadLine.ToString
                     If reading <> Nothing Then
-                        Try
-
-                            SensorNumber = CLng(reading.Substring(0, 1))
-                            VoltageReading = CLng(reading.Substring(1))
-                            Select Case SensorNumber
-                                Case 1
-                                    Call Plot_Chart(Sensor1, Port2, StomachPH, TextBox18, VoltageReading, Sensor1.Timer)
-                                    Call Plot_Chart(Sensor1, Port2, StomachPHAuto, TextBox16, VoltageReading, Sensor1.Timer)
-                                    'export function under construction
-                                    PH_for_export(Sensor1.Timer - 1, 0) = PH_Calculations(VoltageReading, Sensor1) 'Save the data into the array for exportation
-                                Case 2
-                                    Call Plot_Chart(Sensor2, Port2, SmallIntestinePH, TextBox19, VoltageReading, Sensor2.Timer)
-                                    Call Plot_Chart(Sensor2, Port2, SmallIntestinePHAuto, TextBox17, VoltageReading, Sensor2.Timer)
-                                Case 3
-                                    Call Plot_Chart(Sensor3, Port2, ColonPH, TextBox20, VoltageReading, Sensor3.Timer)
-                                    Call Plot_Chart(Sensor3, Port2, ColonPHAuto, TextBox21, VoltageReading, Sensor3.Timer)
-                                Case 4
-                                    Call Plot_Chart(Sensor4, Port2, Colon2PH, TextBox27, VoltageReading, Sensor4.Timer)
+                        If IsNumeric(reading) = True Then
+                            Try
+                                SensorNumber = CLng(reading.Substring(0, 1))
+                                VoltageReading = CLng(reading.Substring(1))
+                                Select Case SensorNumber
+                                    Case 1
+                                        Call Plot_Chart(Sensor1, Port2, StomachPH, TextBox18, VoltageReading, Sensor1.Timer)
+                                        Call Plot_Chart(Sensor1, Port2, StomachPHAuto, TextBox16, VoltageReading, Sensor1.Timer)
+                                        'export function under construction
+                                        PH_for_export(Sensor1.Timer - 1, 0) = PH_Calculations(VoltageReading, Sensor1) 'Save the data into the array for exportation
+                                    Case 2
+                                        Call Plot_Chart(Sensor2, Port2, SmallIntestinePH, TextBox19, VoltageReading, Sensor2.Timer)
+                                        Call Plot_Chart(Sensor2, Port2, SmallIntestinePHAuto, TextBox17, VoltageReading, Sensor2.Timer)
+                                    Case 3
+                                        Call Plot_Chart(Sensor3, Port2, ColonPH, TextBox20, VoltageReading, Sensor3.Timer)
+                                        Call Plot_Chart(Sensor3, Port2, ColonPHAuto, TextBox21, VoltageReading, Sensor3.Timer)
+                                    Case 4
+                                        Call Plot_Chart(Sensor4, Port2, Colon2PH, TextBox27, VoltageReading, Sensor4.Timer)
                                     'Call Plot_Chart(Sensor4, ReadPort1, Colon2PHAuto, TextBox27, VoltageReading,Sensor4.Timer)
-                                Case 5
-                                    Call Plot_Chart(Sensor5, Port2, Colon3PH, TextBox28, VoltageReading, Sensor5.Timer)
-                                    'Call Plot_Chart(Sensor3, ReadPort1, Colon3PHAuto, TextBox28, VoltageReading,Sensor5.Timer)
-                            End Select
-                        Catch
-                            ArduinoReading = ""
-                            SensorNumber = 0
-                            VoltageReading = 0
+                                    Case 5
+                                        Call Plot_Chart(Sensor5, Port2, Colon3PH, TextBox28, VoltageReading, Sensor5.Timer)
+                                        'Call Plot_Chart(Sensor3, ReadPort1, Colon3PHAuto, TextBox28, VoltageReading,Sensor5.Timer)
+                                End Select
+                            Catch
+                                ArduinoReading = ""
+                                SensorNumber = 0
+                                VoltageReading = 0
 
-                        End Try
-                    Else
+                            End Try
+                        End If
                     End If
                 Catch
 
@@ -243,39 +288,8 @@ Public Class Form
         Call Plot_ONOFF(Sensor3, Button32)
     End Sub
 
-    Private Sub Button42_Click(sender As Object, e As EventArgs)
-        'Button for auto PH control for PH sensor 1'
-        If Sensor1.AutoControlStatus = 0 Then
-            Sensor1.AutoControlStatus = 1
-            Button42.Text = "Disable Controller"
-        Else
-            Sensor1.AutoControlStatus = 0
-            Button42.Text = "Enable Controller"
-        End If
-    End Sub
 
-    Private Sub Button43_Click(sender As Object, e As EventArgs)
-        'Button for auto PH control for PH sensor 2'
-        If Sensor2.AutoControlStatus = 0 Then
-            Sensor2.AutoControlStatus = 1
-            Button43.Text = "Disable Controller"
-        Else
-            Sensor2.AutoControlStatus = 0
-            Button43.Text = "Enable Controller"
-        End If
-    End Sub
-
-    Private Sub Button44_Click(sender As Object, e As EventArgs)
-        'Button for auto PH control for PH sensor 3'
-        If Sensor3.AutoControlStatus = 0 Then
-            Sensor3.AutoControlStatus = 1
-            Button44.Text = "Disable Controller"
-        Else
-            Sensor3.AutoControlStatus = 0
-            Button44.Text = "Enable Controller"
-        End If
-    End Sub
-    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     Private Sub Button45_Click(sender As Object, e As EventArgs) Handles Button45.Click
         'Export the log of PH stored to an Excel'
         Call Export_to_Excel("D:\book4.xlsx", 1, Sensor1)
@@ -283,24 +297,12 @@ Public Class Form
         Call Export_to_Excel("D:\book4.xlsx", 3, Sensor3)
     End Sub
 
-    Private Sub Button46_Click(sender As Object, e As EventArgs)
-        'Button for enabling/disabling feeding scheme'
-        If testrun = 0 Then
-            testrun = 1
-            Button46.Text = "Disable Feeding Cycle"
-        Else
-            testrun = 0
-            Button46.Text = "Enable Feeding Cycle"
-        End If
-    End Sub
 
     ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     'Functions
     Function PH_Calculations(readings As Integer, sensor_reading As PHsensor) As Double
         'This is the function to calculate PH from sensor readings
-        Dim ActualVoltage As Double
-        ActualVoltage = readings / 1024 * 5 * 1000
-        PH_Calculations = (ActualVoltage - sensor_reading.Intercept) / sensor_reading.Slope
+        PH_Calculations = (readings - sensor_reading.Intercept) / sensor_reading.Slope
     End Function
 
     Function Pump_OnOff(input_pump As Pump, input_button As Button, output_textbox As TextBox, output_port As System.IO.Ports.SerialPort, output_text As String)
@@ -363,38 +365,6 @@ Public Class Form
         Plot_Reset = True
     End Function
 
-    Function PID_Controller(input_voltage As Double, setpoint As Double, output_pump_acid As Pump, output_pump_base As Pump, tolerance_acid As Double, tolerance_base As Double, sensor As PHsensor)
-        'This PID controller works with pumps, but to use solenoid valves you just need to switch the pump here to valves'
-        'Currently it only works with P, because with ON/OFF control PID doesnt really make any sense anyways...'
-        'Here setpoint should be in actual PH instead of voltage'
-        Dim errorterm As Double
-        errorterm = setpoint - PH_Calculations(input_voltage, sensor)
-        If errorterm < tolerance_acid Then
-            output_pump_acid.State = 1
-        Else
-            output_pump_acid.State = 0
-        End If
-        If errorterm > tolerance_base Then
-            output_pump_base.State = 1
-        Else
-            output_pump_base.State = 0
-        End If
-        PID_Controller = True
-    End Function
-
-    Function Pump_Auto_Control(input_pump As Pump, output_port As System.IO.Ports.SerialPort, output_text As String)
-        'This is to implement a pump discharge/stop command generated by PID controller
-        If (input_pump.State = 1) Then
-            input_pump.StateStr = "On"
-        Else
-            input_pump.StateStr = "Off"
-        End If
-        Try
-            output_port.WriteLine(input_pump.State.ToString & output_text) 'The output_text is the device specific code to the serial and Arduino'
-        Catch
-        End Try
-        Pump_Auto_Control = True
-    End Function
 
     Function Export_to_Excel(Path As String, sensor_number As Integer, source_sensor As PHsensor)
         'To export sensor data to Excel for further investigation'
@@ -430,19 +400,12 @@ Public Class Form
         Call Export_to_Excel("D:\book4.xlsx", 2, Sensor1)
     End Sub
 
-    Private Sub TestTimer_Tick(sender As Object, e As EventArgs) Handles TestTimer.Tick
-        Dim b As Integer
-        b = Sensor1.Timer * 2
-
-    End Sub
 
     Private Sub RandomTesting2_Click(sender As Object, e As EventArgs) Handles RandomTesting2.Click
         For i = 0 To 5
             MsgBox(PH_for_export(i, 0) + 2)
         Next
     End Sub
-
-
 End Class
 
 

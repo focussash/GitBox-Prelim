@@ -34,9 +34,9 @@ void setup() {
   for (i=0;i<5;i++)
   {
     pinMode (pumppins[i],OUTPUT);
-    pinMode (valvepins[i],OUTPUT);
+    pinMode (spargerpin,OUTPUT);
   }  
-  Serial.setTimeout(50);
+  //Serial.setTimeout(50);
 }
 
 void loop() {
@@ -61,9 +61,8 @@ void loop() {
     device_type = instring_int[1];
     device_intensity = instring_int[0];
   } 
-  switch (device_type){//Apply the voltage to devices
-    case 1://if its a pump
-      for (k=1;k<11;k++){
+  //We now only have 1 device to be controlled so device type doesnt matter
+      for (k=1;k<5;k++){
         if (k == device_number){//digital control
             if (device_intensity == 1){
               digitalWrite(pumppins[k-1],HIGH);
@@ -72,43 +71,39 @@ void loop() {
               digitalWrite(pumppins[k-1],LOW);
             }
         }
-      }
-    break;  
-    case 2://Solenoid valve is no longer controlled by PC
-    break; 
-    case 3://Not yet in use
-    break;
- }
+      } 
 }
+else {
 //Now, check if we need liquid transfer
-  if (timer > TimeStamp1) && (timer < TimerStamp2){
-    digitalWrite(pumpspin[0],HIGH);
+  if ((timer > TimeStamp1) && (timer < TimeStamp2)){
+    digitalWrite(pumppins[0],HIGH);
   }
   else {
-    digitalWrite(pumpspin[0],LOW);
+    digitalWrite(pumppins[0],LOW);
   }
-  if (timer > TimeStamp3) && (timer < TimerStamp4){
-    digitalWrite(pumpspin[1],HIGH);
-  }
-  else {
-    digitalWrite(pumpspin[1],LOW);
-  }
-  if (timer > TimeStamp5) && (timer < TimerStamp6){
-    digitalWrite(pumpspin[2],HIGH);
+  if ((timer > TimeStamp3) && (timer < TimeStamp4)){
+    digitalWrite(pumppins[1],HIGH);
   }
   else {
-    digitalWrite(pumpspin[2],LOW);
+    digitalWrite(pumppins[1],LOW);
   }
-  if (timer > TimeStamp7) && (timer < TimerStamp8){
-    digitalWrite(pumpspin[3],HIGH);
+  if ((timer > TimeStamp5) && (timer < TimeStamp6)){
+    digitalWrite(pumppins[2],HIGH);
   }
   else {
-    digitalWrite(pumpspin[3],LOW);
+    digitalWrite(pumppins[2],LOW);
+  }
+  if ((timer > TimeStamp7) && (timer < TimeStamp8)){
+    digitalWrite(pumppins[3],HIGH);
+  }
+  else {
+    digitalWrite(pumppins[3],LOW);
   }
   if (timer > TimeStamp8){
     timer = 0;
   }
   timer += 1;
+}
 //Now, handles the gas sparging
   if (tspa > 10){//reset timer if it exceeds 10 secs
     tspa = 0;

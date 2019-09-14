@@ -3,8 +3,11 @@
 //2. Send them to PC (independent of PC itself)
 //3. Take commands from PC and execute (pH pumps)
 
+//Tweak the following parameters to achieve better pH control
 #define tol 0.3 //tolerance for pH
 #define pumptime 1000//How long each acid/base addition last, in milliseconds
+
+#define NumTransfer 4 //Number of pumps used for liquid transfer between vessels
 //Set the setpoints
 float setpoint[3] = {2.0,6.7,7.4};
 
@@ -17,8 +20,12 @@ int pumppins[6]= {3,5,6,9,1,1};//pins for pumps for pH control
 //For these pump pins, #1 = acid & #2 = base are for sensor 1,
 //#3=acid & #4=base are for sensor 2, etc
 
+int device_number;//To store the numbering of device
+int device_type;//To store the type of device
+int device_intensity;//To store intensity of device
+
 int readings[6];//stores the readings from each sensor
-float readinsf[6];//Actual pH readings
+float readingsf[6];//Actual pH readings
 int slope[6];//Slopes of sensors
 int intercept[6];//intercepts of sensors
 
@@ -68,7 +75,7 @@ void loop() {
     {
       instring_int[i] = (int)instring[i]-48; //parse the input data into 5 integer; the -48 is to convert the ascii number into integer
     }
-    device_number = instring_int[2]*10+ instring_int[3];
+    device_number = instring_int[2]*10+ instring_int[3] - NumTransfer;
     device_type = instring_int[1];
     device_intensity = instring_int[0];
   } 
@@ -84,7 +91,7 @@ void loop() {
         }
       } 
 }
- 
+ else {
   //Reading signals from sensors
  for (j = 0;j<k;j++)
   {
@@ -92,26 +99,27 @@ void loop() {
     //calculate actual pH 
     readingsf[j] = (readings[j] - intercept[j])/slope[j];  
     Serial.print(j+1);
-    Serial.println(readingsf[j]);
+    Serial.println(int(readings[j]));
     delay(200);
   }
 
 //Controlling pumps
   if (timer > 5) {
     for (j = 0;j<k;j++) {
-      if (readingsf[j] - setpoint[j] < tol) {
-        digitalWrite(pumpspin[2*j],HIGH);
+      if (readingsf[j] - setpoint[j] > tol) {
+        digitalWrite(pumppins[2*j],HIGH);
         delay(pumptime);
-        digitalWrite(pumpspin[2*j],LOW);
+        digitalWrite(pumppins[2*j],LOW);
       }
-      if (readingsf[j] - setpoint[j] > tol){
-        digitalWrite(pumpspin[2*j+1],HIGH);
+      if (readingsf[j] - setpoint[j] < - tol){
+        digitalWrite(pumppins[2*j+1],HIGH);
         delay(pumptime);
-        digitalWrite(pumpspin[2*j+1],LOW);
+        digitalWrite(pumppins[2*j+1],LOW);
       }
     }
     timer = 0;
   }
-  timer + = 1;
-  delay(1000);
+    timer += 1;
+ }
+  delay(300);
 }
