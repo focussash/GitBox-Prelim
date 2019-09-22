@@ -5,7 +5,7 @@
 
 //Tweak the following parameters to achieve better pH control
 #define tol 0.3 //tolerance for pH
-#define pumptime 1000//How long each acid/base addition last, in milliseconds
+#define pumptime 2000//How long each acid/base addition last, in milliseconds
 
 #define NumTransfer 4 //Number of pumps used for liquid transfer between vessels
 //Set the setpoints
@@ -16,7 +16,7 @@ int instring_int[4]; //This stores the input from the Serial port converted to i
 
 int analogPins[5] = {A0,A1,A2,A3,A4};
 
-int pumppins[6]= {3,5,6,9,1,1};//pins for pumps for pH control
+int pumppins[6]= {3,4,5,6,7,8};//pins for pumps for pH control
 //For these pump pins, #1 = acid & #2 = base are for sensor 1,
 //#3=acid & #4=base are for sensor 2, etc
 
@@ -46,14 +46,14 @@ void setup() {
   //Serial.setTimeout(50);
 
   //Sensor 1
-  slope[0] = -232;
-  intercept[0] = 4648;
+  slope[0] = -35;
+  intercept[0] = 860;
   //Sensor 2
-  slope[1] = -216;
-  intercept[1] = 4765;
+  slope[1] = -34;
+  intercept[1] = 867;
   //Sensor 3
-  slope[2] = -245;
-  intercept[2] = 4397;
+  slope[2] = -35;
+  intercept[2] = 860;
 }
 
 void loop() {
