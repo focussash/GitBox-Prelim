@@ -23,35 +23,35 @@ Partial Class Form
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea19 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend19 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series23 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series24 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea20 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend20 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series25 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea21 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend21 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series26 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea22 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend22 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series27 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea23 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend23 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series28 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea24 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend24 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series29 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series30 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea25 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend25 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series31 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea26 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend26 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series32 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea27 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend27 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series33 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea55 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend55 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series67 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series68 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea56 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend56 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series69 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea57 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend57 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series70 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea58 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend58 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series71 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea59 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend59 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series72 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea60 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend60 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series73 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series74 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea61 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend61 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series75 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea62 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend62 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series76 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea63 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend63 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series77 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TestChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
@@ -216,23 +216,23 @@ Partial Class Form
         '
         'TestChart
         '
-        ChartArea19.Name = "ChartArea1"
-        Me.TestChart.ChartAreas.Add(ChartArea19)
-        Legend19.Enabled = False
-        Legend19.Name = "Legend1"
-        Me.TestChart.Legends.Add(Legend19)
+        ChartArea55.Name = "ChartArea1"
+        Me.TestChart.ChartAreas.Add(ChartArea55)
+        Legend55.Enabled = False
+        Legend55.Name = "Legend1"
+        Me.TestChart.Legends.Add(Legend55)
         Me.TestChart.Location = New System.Drawing.Point(675, 124)
         Me.TestChart.Name = "TestChart"
-        Series23.ChartArea = "ChartArea1"
-        Series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series23.Legend = "Legend1"
-        Series23.Name = "Series1"
-        Series24.ChartArea = "ChartArea1"
-        Series24.Enabled = False
-        Series24.Legend = "Legend1"
-        Series24.Name = "Series2"
-        Me.TestChart.Series.Add(Series23)
-        Me.TestChart.Series.Add(Series24)
+        Series67.ChartArea = "ChartArea1"
+        Series67.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series67.Legend = "Legend1"
+        Series67.Name = "Series1"
+        Series68.ChartArea = "ChartArea1"
+        Series68.Enabled = False
+        Series68.Legend = "Legend1"
+        Series68.Name = "Series2"
+        Me.TestChart.Series.Add(Series67)
+        Me.TestChart.Series.Add(Series68)
         Me.TestChart.Size = New System.Drawing.Size(419, 121)
         Me.TestChart.TabIndex = 14
         Me.TestChart.Text = "Chart1"
@@ -255,7 +255,7 @@ Partial Class Form
         '
         'Random_Testing
         '
-        Me.Random_Testing.Location = New System.Drawing.Point(675, 20)
+        Me.Random_Testing.Location = New System.Drawing.Point(675, 19)
         Me.Random_Testing.Name = "Random_Testing"
         Me.Random_Testing.Size = New System.Drawing.Size(176, 46)
         Me.Random_Testing.TabIndex = 11
@@ -379,20 +379,20 @@ Partial Class Form
         '
         'Colon3PH
         '
-        ChartArea20.AxisY.Maximum = 14.0R
-        ChartArea20.AxisY.Minimum = 0R
-        ChartArea20.Name = "ChartArea1"
-        Me.Colon3PH.ChartAreas.Add(ChartArea20)
-        Legend20.Enabled = False
-        Legend20.Name = "Legend1"
-        Me.Colon3PH.Legends.Add(Legend20)
+        ChartArea56.AxisY.Maximum = 14.0R
+        ChartArea56.AxisY.Minimum = 0R
+        ChartArea56.Name = "ChartArea1"
+        Me.Colon3PH.ChartAreas.Add(ChartArea56)
+        Legend56.Enabled = False
+        Legend56.Name = "Legend1"
+        Me.Colon3PH.Legends.Add(Legend56)
         Me.Colon3PH.Location = New System.Drawing.Point(1427, 39)
         Me.Colon3PH.Name = "Colon3PH"
-        Series25.ChartArea = "ChartArea1"
-        Series25.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series25.Legend = "Legend1"
-        Series25.Name = "Series1"
-        Me.Colon3PH.Series.Add(Series25)
+        Series69.ChartArea = "ChartArea1"
+        Series69.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series69.Legend = "Legend1"
+        Series69.Name = "Series1"
+        Me.Colon3PH.Series.Add(Series69)
         Me.Colon3PH.Size = New System.Drawing.Size(337, 291)
         Me.Colon3PH.TabIndex = 29
         Me.Colon3PH.Text = "Chart3"
@@ -433,20 +433,20 @@ Partial Class Form
         '
         'Colon2PH
         '
-        ChartArea21.AxisY.Maximum = 14.0R
-        ChartArea21.AxisY.Minimum = 0R
-        ChartArea21.Name = "ChartArea1"
-        Me.Colon2PH.ChartAreas.Add(ChartArea21)
-        Legend21.Enabled = False
-        Legend21.Name = "Legend1"
-        Me.Colon2PH.Legends.Add(Legend21)
+        ChartArea57.AxisY.Maximum = 14.0R
+        ChartArea57.AxisY.Minimum = 0R
+        ChartArea57.Name = "ChartArea1"
+        Me.Colon2PH.ChartAreas.Add(ChartArea57)
+        Legend57.Enabled = False
+        Legend57.Name = "Legend1"
+        Me.Colon2PH.Legends.Add(Legend57)
         Me.Colon2PH.Location = New System.Drawing.Point(1075, 39)
         Me.Colon2PH.Name = "Colon2PH"
-        Series26.ChartArea = "ChartArea1"
-        Series26.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series26.Legend = "Legend1"
-        Series26.Name = "Series1"
-        Me.Colon2PH.Series.Add(Series26)
+        Series70.ChartArea = "ChartArea1"
+        Series70.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series70.Legend = "Legend1"
+        Series70.Name = "Series1"
+        Me.Colon2PH.Series.Add(Series70)
         Me.Colon2PH.Size = New System.Drawing.Size(345, 291)
         Me.Colon2PH.TabIndex = 24
         Me.Colon2PH.Text = "Chart3"
@@ -537,20 +537,20 @@ Partial Class Form
         '
         'ColonPH
         '
-        ChartArea22.AxisY.Maximum = 14.0R
-        ChartArea22.AxisY.Minimum = 0R
-        ChartArea22.Name = "ChartArea1"
-        Me.ColonPH.ChartAreas.Add(ChartArea22)
-        Legend22.Enabled = False
-        Legend22.Name = "Legend1"
-        Me.ColonPH.Legends.Add(Legend22)
+        ChartArea58.AxisY.Maximum = 14.0R
+        ChartArea58.AxisY.Minimum = 0R
+        ChartArea58.Name = "ChartArea1"
+        Me.ColonPH.ChartAreas.Add(ChartArea58)
+        Legend58.Enabled = False
+        Legend58.Name = "Legend1"
+        Me.ColonPH.Legends.Add(Legend58)
         Me.ColonPH.Location = New System.Drawing.Point(731, 39)
         Me.ColonPH.Name = "ColonPH"
-        Series27.ChartArea = "ChartArea1"
-        Series27.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series27.Legend = "Legend1"
-        Series27.Name = "Series1"
-        Me.ColonPH.Series.Add(Series27)
+        Series71.ChartArea = "ChartArea1"
+        Series71.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series71.Legend = "Legend1"
+        Series71.Name = "Series1"
+        Me.ColonPH.Series.Add(Series71)
         Me.ColonPH.Size = New System.Drawing.Size(338, 291)
         Me.ColonPH.TabIndex = 13
         Me.ColonPH.Text = "Chart3"
@@ -566,20 +566,20 @@ Partial Class Form
         '
         'SmallIntestinePH
         '
-        ChartArea23.AxisY.Maximum = 14.0R
-        ChartArea23.AxisY.Minimum = 0R
-        ChartArea23.Name = "ChartArea1"
-        Me.SmallIntestinePH.ChartAreas.Add(ChartArea23)
-        Legend23.Enabled = False
-        Legend23.Name = "Legend1"
-        Me.SmallIntestinePH.Legends.Add(Legend23)
+        ChartArea59.AxisY.Maximum = 14.0R
+        ChartArea59.AxisY.Minimum = 0R
+        ChartArea59.Name = "ChartArea1"
+        Me.SmallIntestinePH.ChartAreas.Add(ChartArea59)
+        Legend59.Enabled = False
+        Legend59.Name = "Legend1"
+        Me.SmallIntestinePH.Legends.Add(Legend59)
         Me.SmallIntestinePH.Location = New System.Drawing.Point(368, 39)
         Me.SmallIntestinePH.Name = "SmallIntestinePH"
-        Series28.ChartArea = "ChartArea1"
-        Series28.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series28.Legend = "Legend1"
-        Series28.Name = "Series1"
-        Me.SmallIntestinePH.Series.Add(Series28)
+        Series72.ChartArea = "ChartArea1"
+        Series72.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series72.Legend = "Legend1"
+        Series72.Name = "Series1"
+        Me.SmallIntestinePH.Series.Add(Series72)
         Me.SmallIntestinePH.Size = New System.Drawing.Size(357, 291)
         Me.SmallIntestinePH.TabIndex = 11
         Me.SmallIntestinePH.Text = "Chart2"
@@ -595,26 +595,26 @@ Partial Class Form
         '
         'StomachPH
         '
-        ChartArea24.AxisY.Maximum = 14.0R
-        ChartArea24.AxisY.Minimum = 0R
-        ChartArea24.Name = "ChartArea1"
-        Me.StomachPH.ChartAreas.Add(ChartArea24)
-        Legend24.Enabled = False
-        Legend24.Name = "Legend1"
-        Me.StomachPH.Legends.Add(Legend24)
+        ChartArea60.AxisY.Maximum = 14.0R
+        ChartArea60.AxisY.Minimum = 0R
+        ChartArea60.Name = "ChartArea1"
+        Me.StomachPH.ChartAreas.Add(ChartArea60)
+        Legend60.Enabled = False
+        Legend60.Name = "Legend1"
+        Me.StomachPH.Legends.Add(Legend60)
         Me.StomachPH.Location = New System.Drawing.Point(12, 39)
         Me.StomachPH.Name = "StomachPH"
-        Series29.ChartArea = "ChartArea1"
-        Series29.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series29.Legend = "Legend1"
-        Series29.Name = "Series1"
-        Series30.ChartArea = "ChartArea1"
-        Series30.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point
-        Series30.Enabled = False
-        Series30.Legend = "Legend1"
-        Series30.Name = "Series2"
-        Me.StomachPH.Series.Add(Series29)
-        Me.StomachPH.Series.Add(Series30)
+        Series73.ChartArea = "ChartArea1"
+        Series73.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series73.Legend = "Legend1"
+        Series73.Name = "Series1"
+        Series74.ChartArea = "ChartArea1"
+        Series74.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point
+        Series74.Enabled = False
+        Series74.Legend = "Legend1"
+        Series74.Name = "Series2"
+        Me.StomachPH.Series.Add(Series73)
+        Me.StomachPH.Series.Add(Series74)
         Me.StomachPH.Size = New System.Drawing.Size(350, 291)
         Me.StomachPH.TabIndex = 1
         Me.StomachPH.Text = "Chart1"
@@ -1041,20 +1041,20 @@ Partial Class Form
         '
         'ColonPHAuto
         '
-        ChartArea25.AxisY.Maximum = 14.0R
-        ChartArea25.AxisY.Minimum = 0R
-        ChartArea25.Name = "ChartArea1"
-        Me.ColonPHAuto.ChartAreas.Add(ChartArea25)
-        Legend25.Enabled = False
-        Legend25.Name = "Legend1"
-        Me.ColonPHAuto.Legends.Add(Legend25)
+        ChartArea61.AxisY.Maximum = 14.0R
+        ChartArea61.AxisY.Minimum = 0R
+        ChartArea61.Name = "ChartArea1"
+        Me.ColonPHAuto.ChartAreas.Add(ChartArea61)
+        Legend61.Enabled = False
+        Legend61.Name = "Legend1"
+        Me.ColonPHAuto.Legends.Add(Legend61)
         Me.ColonPHAuto.Location = New System.Drawing.Point(6, 24)
         Me.ColonPHAuto.Name = "ColonPHAuto"
-        Series31.ChartArea = "ChartArea1"
-        Series31.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series31.Legend = "Legend1"
-        Series31.Name = "Series1"
-        Me.ColonPHAuto.Series.Add(Series31)
+        Series75.ChartArea = "ChartArea1"
+        Series75.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series75.Legend = "Legend1"
+        Series75.Name = "Series1"
+        Me.ColonPHAuto.Series.Add(Series75)
         Me.ColonPHAuto.Size = New System.Drawing.Size(272, 250)
         Me.ColonPHAuto.TabIndex = 4
         Me.ColonPHAuto.Text = "Chart3"
@@ -1089,20 +1089,20 @@ Partial Class Form
         '
         'SmallIntestinePHAuto
         '
-        ChartArea26.AxisY.Maximum = 14.0R
-        ChartArea26.AxisY.Minimum = 0R
-        ChartArea26.Name = "ChartArea1"
-        Me.SmallIntestinePHAuto.ChartAreas.Add(ChartArea26)
-        Legend26.Enabled = False
-        Legend26.Name = "Legend1"
-        Me.SmallIntestinePHAuto.Legends.Add(Legend26)
+        ChartArea62.AxisY.Maximum = 14.0R
+        ChartArea62.AxisY.Minimum = 0R
+        ChartArea62.Name = "ChartArea1"
+        Me.SmallIntestinePHAuto.ChartAreas.Add(ChartArea62)
+        Legend62.Enabled = False
+        Legend62.Name = "Legend1"
+        Me.SmallIntestinePHAuto.Legends.Add(Legend62)
         Me.SmallIntestinePHAuto.Location = New System.Drawing.Point(6, 24)
         Me.SmallIntestinePHAuto.Name = "SmallIntestinePHAuto"
-        Series32.ChartArea = "ChartArea1"
-        Series32.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series32.Legend = "Legend1"
-        Series32.Name = "Series1"
-        Me.SmallIntestinePHAuto.Series.Add(Series32)
+        Series76.ChartArea = "ChartArea1"
+        Series76.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series76.Legend = "Legend1"
+        Series76.Name = "Series1"
+        Me.SmallIntestinePHAuto.Series.Add(Series76)
         Me.SmallIntestinePHAuto.Size = New System.Drawing.Size(261, 250)
         Me.SmallIntestinePHAuto.TabIndex = 3
         Me.SmallIntestinePHAuto.Text = "Chart2"
@@ -1137,20 +1137,20 @@ Partial Class Form
         '
         'StomachPHAuto
         '
-        ChartArea27.AxisY.Maximum = 14.0R
-        ChartArea27.AxisY.Minimum = 0R
-        ChartArea27.Name = "ChartArea1"
-        Me.StomachPHAuto.ChartAreas.Add(ChartArea27)
-        Legend27.Enabled = False
-        Legend27.Name = "Legend1"
-        Me.StomachPHAuto.Legends.Add(Legend27)
+        ChartArea63.AxisY.Maximum = 14.0R
+        ChartArea63.AxisY.Minimum = 0R
+        ChartArea63.Name = "ChartArea1"
+        Me.StomachPHAuto.ChartAreas.Add(ChartArea63)
+        Legend63.Enabled = False
+        Legend63.Name = "Legend1"
+        Me.StomachPHAuto.Legends.Add(Legend63)
         Me.StomachPHAuto.Location = New System.Drawing.Point(6, 24)
         Me.StomachPHAuto.Name = "StomachPHAuto"
-        Series33.ChartArea = "ChartArea1"
-        Series33.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series33.Legend = "Legend1"
-        Series33.Name = "Series1"
-        Me.StomachPHAuto.Series.Add(Series33)
+        Series77.ChartArea = "ChartArea1"
+        Series77.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series77.Legend = "Legend1"
+        Series77.Name = "Series1"
+        Me.StomachPHAuto.Series.Add(Series77)
         Me.StomachPHAuto.Size = New System.Drawing.Size(293, 226)
         Me.StomachPHAuto.TabIndex = 2
         Me.StomachPHAuto.Text = "Chart1"
@@ -1168,11 +1168,17 @@ Partial Class Form
         'Timer1
         '
         Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 1000
+        Me.Timer1.Interval = 50
+        '
+        'Port1
+        '
+        Me.Port1.DtrEnable = True
+        Me.Port1.ReadTimeout = 1000
         '
         'Port2
         '
-        Me.Port2.ReadTimeout = 5000
+        Me.Port2.DtrEnable = True
+        Me.Port2.ReadTimeout = 1000
         '
         'Timer2
         '

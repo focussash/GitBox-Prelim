@@ -19,7 +19,8 @@ Public Class Form
     Dim Sensor2 As New pHsensor()
     Dim Sensor3 As New pHsensor()
     Dim Sensor4 As New pHsensor()
-    Dim Sensor5 As New pHsensor()
+    Dim Sensor5 As New PHsensor()
+    Dim Sensor6 As New PHsensor()
     'Serial Ports'
     Dim com(4) As IO.Ports.SerialPort
     Dim portCount As Integer
@@ -45,7 +46,6 @@ Public Class Form
     'Output string definition: ABCD - A refers to the type (1 for pump, 2 for valve, ...) B and C refers to the device number (starting from 01)
     'D refers to the control type (1 for digital and 2 for analog for pump or flash for valve)
 
-    'Buttons 1 - 5, 33 - 37 are for pumps, ON/OFF operation'
 
     'The following 4 ports handle liquid transfer between vessels and are for MEGA
 
@@ -137,12 +137,12 @@ Public Class Form
 
         SerialCheck = 1
         'This is the initialization button which initializes all variables'
-        Sensor1.Slope = 260
-        Sensor1.Intercept = -50
-        Sensor2.Slope = 260
-        Sensor2.Intercept = -50
-        Sensor3.Slope = 260
-        Sensor3.Intercept = -50
+        Sensor1.Slope = -35
+        Sensor1.Intercept = 860
+        Sensor2.Slope = -34
+        Sensor2.Intercept = 867
+        Sensor3.Slope = -35
+        Sensor3.Intercept = 860
 
 
         tick = 0
@@ -161,8 +161,8 @@ Public Class Form
         Next
         'I only have limited amount of port objects, so lets manually assign them'
         Try
-            Port2 = My.Computer.Ports.OpenSerialPort("COM4") 'Port for pH sensors  (UNO/MEGA1)
-            'Port1 = My.Computer.Ports.OpenSerialPort("COM6") 'Port for pumps/gas sparger (MEGA2)
+            Port2 = My.Computer.Ports.OpenSerialPort("COM6") 'Port for pH sensors  (UNO/MEGA1)
+            Port1 = My.Computer.Ports.OpenSerialPort("COM7") 'Port for pumps/gas sparger (MEGA2)
 
             InitializeStatus += 1 'Check if this is initialization, or update
             'Confirm that the form is initialized'
@@ -170,6 +170,12 @@ Public Class Form
                 TextBox15.Text = "Initialized!"
                 Initialization.Text = "Initialized, don't click again!"
             End If
+            'Prime the pumps
+            Port1.WriteLine("1001")
+            Port2.WriteLine("1001")
+            Port1.ReadTimeout = 5000
+            Port2.ReadTimeout = 5000
+
         Catch 'if someone clicked it twice, prompt an error
             MsgBox("Initialization Error!" & vbCrLf & "Restart the program!")
         End Try
@@ -181,7 +187,7 @@ Public Class Form
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         'This timer deals with reading voltage from PH sensors and plotting them etc'
         tick += 1
-        If tick > 5 Then
+        If tick > 100 Then
             tick = 0
             Try
                 Port2.DiscardInBuffer() 'This is VERY important! Otherwise readings accumulate in the buffer and you dont get actual real-time reading
@@ -198,45 +204,52 @@ Public Class Form
             If SerialCheck = 1 Then 'If serial port is not occupied
                 Try
                     SerialCheck = 0 'Occupy the serial
-                    Dim reading As String = Port2.ReadLine.ToString
-                    If reading <> Nothing Then
-                        If IsNumeric(reading) = True Then
-                            Try
-                                SensorNumber = CLng(reading.Substring(0, 1))
-                                VoltageReading = CLng(reading.Substring(1))
-                                Select Case SensorNumber
-                                    Case 1
-                                        Call Plot_Chart(Sensor1, Port2, StomachPH, TextBox18, VoltageReading, Sensor1.Timer)
-                                        Call Plot_Chart(Sensor1, Port2, StomachPHAuto, TextBox16, VoltageReading, Sensor1.Timer)
-                                        'export function under construction
-                                        PH_for_export(Sensor1.Timer - 1, 0) = PH_Calculations(VoltageReading, Sensor1) 'Save the data into the array for exportation
-                                    Case 2
-                                        Call Plot_Chart(Sensor2, Port2, SmallIntestinePH, TextBox19, VoltageReading, Sensor2.Timer)
-                                        Call Plot_Chart(Sensor2, Port2, SmallIntestinePHAuto, TextBox17, VoltageReading, Sensor2.Timer)
-                                    Case 3
-                                        Call Plot_Chart(Sensor3, Port2, ColonPH, TextBox20, VoltageReading, Sensor3.Timer)
-                                        Call Plot_Chart(Sensor3, Port2, ColonPHAuto, TextBox21, VoltageReading, Sensor3.Timer)
-                                    Case 4
-                                        Call Plot_Chart(Sensor4, Port2, Colon2PH, TextBox27, VoltageReading, Sensor4.Timer)
-                                    'Call Plot_Chart(Sensor4, ReadPort1, Colon2PHAuto, TextBox27, VoltageReading,Sensor4.Timer)
-                                    Case 5
-                                        Call Plot_Chart(Sensor5, Port2, Colon3PH, TextBox28, VoltageReading, Sensor5.Timer)
-                                        'Call Plot_Chart(Sensor3, ReadPort1, Colon3PHAuto, TextBox28, VoltageReading,Sensor5.Timer)
-                                End Select
-                            Catch
-                                ArduinoReading = ""
-                                SensorNumber = 0
-                                VoltageReading = 0
+                    If Port2.BytesToRead > 0 Then
+                        ArduinoReading = Port2.ReadLine.ToString
+                        If ArduinoReading IsNot Nothing Then
+                            If IsNumeric(ArduinoReading) = True Then
+                                Try
+                                    SensorNumber = CLng(ArduinoReading.Substring(0, 1))
+                                    VoltageReading = CLng(ArduinoReading.Substring(1))
 
-                            End Try
+                                    'MsgBox(reading) 'For debugging
+
+                                    Select Case SensorNumber
+                                        Case 1
+                                            Call Plot_Chart(Sensor1, Port2, StomachPH, TextBox18, VoltageReading, Sensor1.Timer)
+                                            Call Plot_Chart(Sensor1, Port2, StomachPHAuto, TextBox16, VoltageReading, Sensor1.Timer)
+                                            'export function under construction
+                                            PH_for_export(Sensor1.Timer - 1, 0) = PH_Calculations(VoltageReading, Sensor1) 'Save the data into the array for exportation
+                                        Case 2
+                                            Call Plot_Chart(Sensor2, Port2, SmallIntestinePH, TextBox19, VoltageReading, Sensor2.Timer)
+                                            Call Plot_Chart(Sensor2, Port2, SmallIntestinePHAuto, TextBox17, VoltageReading, Sensor2.Timer)
+                                        Case 3
+                                            Call Plot_Chart(Sensor3, Port2, ColonPH, TextBox20, VoltageReading, Sensor3.Timer)
+                                            Call Plot_Chart(Sensor3, Port2, ColonPHAuto, TextBox21, VoltageReading, Sensor3.Timer)
+                                        Case 4
+                                            Call Plot_Chart(Sensor4, Port2, Colon2PH, TextBox27, VoltageReading, Sensor4.Timer)
+                                            'Call Plot_Chart(Sensor4, ReadPort1, Colon2PHAuto, TextBox27, VoltageReading,Sensor4.Timer)
+                                        Case 5
+                                            Call Plot_Chart(Sensor5, Port2, Colon3PH, TextBox28, VoltageReading, Sensor5.Timer)
+                                            'Call Plot_Chart(Sensor3, ReadPort1, Colon3PHAuto, TextBox28, VoltageReading,Sensor5.Timer)
+                                    End Select
+                                Catch
+                                    ArduinoReading = ""
+                                    SensorNumber = 0
+                                    VoltageReading = 0
+
+                                End Try
+                            End If
                         End If
+                        TestTextbox.Text = ""
+                    Else
+                        TestTextbox.Text = "Nothing"
                     End If
                 Catch
-
+                    MsgBox("error")
                 End Try
             End If
             SerialCheck = 1 'Release the serial
-
         End If
     End Sub
 
@@ -329,13 +342,13 @@ Public Class Form
     Function Plot_Chart(input_sensor As PHsensor, input_port As System.IO.Ports.SerialPort, output_chart As System.Windows.Forms.DataVisualization.Charting.Chart, output_textbox As TextBox, input_number As Long, x_value As Integer)
         'This function plots the computed reading from sensors into charts
         Dim time As Double
-        time = x_value / 2 'Convert to seconds
+        time = x_value / (1000 / Timer1.Interval) 'Convert to seconds
         If input_sensor.PlotStatus = 1 Then
             input_sensor.Timer += 1
             Try
                 input_sensor.Reading = PH_Calculations(input_number, input_sensor) 'Note that here Arduino directly sent a number, not a string
-                output_chart.Series(0).Points.AddXY(x_value.ToString, input_sensor.Reading.ToString)
-                'The following codes automatically trim the dataset'
+                output_chart.Series(0).Points.AddXY(CInt(time), input_sensor.Reading.ToString)
+                'The following code automatically trim the dataset'
                 'If output_chart.Series(serie_number).Points.Count = 20 Then
                 'output_chart.Series(serie_number).Points.RemoveAt(0)
                 'End If
@@ -395,16 +408,27 @@ Public Class Form
 
 
     Private Sub Random_Testing_Click(sender As Object, e As EventArgs) Handles Random_Testing.Click
-        'For some random tests'
-        Call Export_to_Excel("D:\book4.xlsx", 1, Sensor1)
-        Call Export_to_Excel("D:\book4.xlsx", 2, Sensor1)
+        Try
+            Port2 = My.Computer.Ports.OpenSerialPort("COM6") 'Port for pH sensors  (UNO/MEGA1)
+            Port1 = My.Computer.Ports.OpenSerialPort("COM4") 'Port for pumps/gas sparger (MEGA2)
+            Port1.DiscardInBuffer()
+            Port2.DiscardInBuffer()
+
+            'Prime the pumps
+        Catch 'if someone clicked it twice, prompt an error
+
+        End Try
+
     End Sub
 
 
     Private Sub RandomTesting2_Click(sender As Object, e As EventArgs) Handles RandomTesting2.Click
-        For i = 0 To 5
-            MsgBox(PH_for_export(i, 0) + 2)
-        Next
+        If Port2.BytesToRead > 0 Then
+            MsgBox(Port2.ReadLine)
+        Else
+            MsgBox(Port2.ReadExisting)
+            MsgBox("a")
+        End If
     End Sub
 End Class
 
